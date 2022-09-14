@@ -1,0 +1,14 @@
+{
+	"name": "instruction_space",
+	"plugin-id": "Text",
+	"sid": 698698787058428,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "pixellate",
+			"name": "Pixellate"
+		}
+	]
+}

@@ -1,0 +1,43 @@
+{
+	"name": "right_speech_bg",
+	"plugin-id": "Sprite",
+	"sid": 906782261966963,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 684653490456314
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 125,
+						"height": 75,
+						"originX": 0.992,
+						"originY": 0.04,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4346676,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 820095613463835,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

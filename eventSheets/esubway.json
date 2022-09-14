@@ -1,0 +1,2083 @@
+{
+	"name": "esubway",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eplayer"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 934397952603526
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 638834734215026,
+					"parameters": {
+						"variable": "previouslayout",
+						"value": "currentlayout"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 833983292408447,
+					"parameters": {
+						"variable": "currentlayout",
+						"value": "\"subway\""
+					}
+				}
+			],
+			"sid": 678601473348182
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "player",
+					"sid": 897687905264262,
+					"parameters": {
+						"object": "warpright"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 204638453830813,
+					"parameters": {
+						"layout": "street100th"
+					}
+				}
+			],
+			"sid": 352245150385934,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 227649683196883
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 484466401592754,
+					"parameters": {
+						"variable": "previouslayout",
+						"comparison": 0,
+						"value": "\"street100th\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "player",
+					"sid": 244588064673287,
+					"parameters": {
+						"x": "24",
+						"y": "23"
+					}
+				}
+			],
+			"sid": 889045574631993
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 176548985842212
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 955915374884431,
+					"parameters": {
+						"variable": "previouslayout",
+						"comparison": 0,
+						"value": "\"train\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "player",
+					"sid": 191956879107615,
+					"parameters": {
+						"x": "61",
+						"y": "108"
+					}
+				}
+			],
+			"sid": 989046452562718
+		},
+		{
+			"eventType": "comment",
+			"text": "script for the dialog"
+		},
+		{
+			"eventType": "comment",
+			"text": "rat"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "player",
+					"sid": 341052107275635,
+					"parameters": {
+						"object": "dialogtrigger"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "dialogtrigger",
+					"sid": 900336528251169,
+					"parameters": {
+						"instance-variable": "convo_number",
+						"comparison": 0,
+						"value": "1"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 623469150072787,
+					"parameters": {
+						"variable": "convo_counter",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "player",
+					"sid": 128172216182071,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "rat",
+					"sid": 160929366353497,
+					"parameters": {
+						"animation": "\"idle\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 363208937060995,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 820185972597114,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 954296426725353,
+					"parameters": {
+						"text": "\"Great, now a gross rat is blocking the exit!\""
+					}
+				},
+				{
+					"id": "shake",
+					"objectClass": "player",
+					"sid": 389468876776662,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"magnitude": "20",
+						"duration": "0.4",
+						"mode": "reducing-magnitude"
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 934586737828706,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "player",
+					"sid": 605197896972630,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "rat",
+					"sid": 239199226347267,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "them_speech",
+					"sid": 968344020098093,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "right_speech_bg",
+					"sid": 639109801964276,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 554072071685677,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 753890939938483,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 693820252744011,
+					"parameters": {
+						"text": "\"Hey!\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 116600424987695,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 745353668474160,
+					"parameters": {
+						"text": "\"You think we'd be thriving if we were really that ~nasty~?\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 847003717565057,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "player",
+					"sid": 123098096535530,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "rat",
+					"sid": 497153918013042,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "them_speech",
+					"sid": 444874541448072,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "right_speech_bg",
+					"sid": 418908296010854,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 162027476290552,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 698377830048411,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 804772748514968,
+					"parameters": {
+						"text": "\"That's a good point... never thought of that.\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 374898008182561,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 277502315295457,
+					"parameters": {
+						"text": "\"But I don't have time to chat with a rat.  \""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 658795982125340,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 386910736177568,
+					"parameters": {
+						"text": "\"I am gonna be late for work!\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 253231284366966,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 186849476998399,
+					"parameters": {
+						"text": "\"And they're going to name me ~EM--\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 963823973331603,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "player",
+					"sid": 587074539925147,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "rat",
+					"sid": 338207512061413,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "them_speech",
+					"sid": 818095140690887,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "right_speech_bg",
+					"sid": 448939292538976,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 902815406323624,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 966568359115999,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 835202323821127,
+					"parameters": {
+						"text": "\"~EMPLOYEE OF THE MONTH~    I know!\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 483186234377987,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 123242138043673,
+					"parameters": {
+						"text": "\"And you're going to be late!\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 809071637641566,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 276174061942028,
+					"parameters": {
+						"text": "\"I have a shortcut I take when the subway is down.\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 969204160238372,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 449262878006845,
+					"parameters": {
+						"text": "\"I can show you! \""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 319548097605880,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "player",
+					"sid": 471655344510838,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "rat",
+					"sid": 868902880742899,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "them_speech",
+					"sid": 187742922471002,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "right_speech_bg",
+					"sid": 566106578073119,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 493015795985574,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 783098939251872,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 288956659256216,
+					"parameters": {
+						"text": "\"No thanks, I can just take the bus.\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 892317910828258,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "player",
+					"sid": 131851226212034,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "rat",
+					"sid": 853388694960600,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "them_speech",
+					"sid": 967012787139728,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "right_speech_bg",
+					"sid": 183085749172628,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 417747015041514,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 342702662735504,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 303970509566951,
+					"parameters": {
+						"text": "\"You won't make it, the bus is too slow.  \""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 905898071422312,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 733077472829068,
+					"parameters": {
+						"text": "\"I know we just met, but what do you have to lose?\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 592212916223247,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "player",
+					"sid": 544561714323607,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "rat",
+					"sid": 576430698656163,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "them_speech",
+					"sid": 467508072289145,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "right_speech_bg",
+					"sid": 581447585838595,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 762621494492069,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 301077148302293,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 881825136230790,
+					"parameters": {
+						"text": "\"You're right... the bus will never make it in time.\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 523546083468061,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 600440249688754,
+					"parameters": {
+						"text": "\"But what's in it for you?\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 821945634055638,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 353952786697026,
+					"parameters": {
+						"text": "\"What do you want in return?\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 208575966859155,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "player",
+					"sid": 499678299610152,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "rat",
+					"sid": 558037709063454,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "them_speech",
+					"sid": 307093829752683,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "right_speech_bg",
+					"sid": 417677200462633,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 932345765015845,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 180485522330553,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 663514029601408,
+					"parameters": {
+						"text": "\"... I...\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 123189660567017,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-mirrored",
+					"objectClass": "rat",
+					"sid": 863097490536589,
+					"parameters": {
+						"state": "mirrored"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 119164087846238,
+					"parameters": {
+						"text": "\"I never got ~employee of the month~.\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 820827713171661,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 544876706788682,
+					"parameters": {
+						"text": "\"I was so close once... but life got in the way.\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 933000049403353,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-mirrored",
+					"objectClass": "rat",
+					"sid": 262550659218730,
+					"parameters": {
+						"state": "not-mirrored"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 705208354910026,
+					"parameters": {
+						"text": "\"I can't let you miss this.\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 404804332725608,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 899315818344760,
+					"parameters": {
+						"text": "\"What do you say?\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 260423262972242,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "player",
+					"sid": 966103584402035,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "rat",
+					"sid": 744554780906538,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "them_speech",
+					"sid": 654753106031616,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "right_speech_bg",
+					"sid": 654368819905971,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 484316136483233,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 763929517959968,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 808534340774293,
+					"parameters": {
+						"text": "\"...\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 686137977200565,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 519312438987342,
+					"parameters": {
+						"text": "\"Ok! Show me the way.\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 645958033676103,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "player",
+					"sid": 925486555718674,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "rat",
+					"sid": 764334594390748,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "them_speech",
+					"sid": 679395830811437,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "right_speech_bg",
+					"sid": 900675666966991,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 805979547214262,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 922842191481916,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 545810282038611,
+					"parameters": {
+						"text": "\"OK! Follow me to the bathroom!\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 124884567825823,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "rat",
+					"sid": 330915182908895,
+					"parameters": {
+						"animation": "\"running\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "find-path",
+					"objectClass": "rat",
+					"sid": 376353592133905,
+					"behaviorType": "Pathfinding",
+					"parameters": {
+						"x": "pathNode.X",
+						"y": "pathNode.Y"
+					}
+				},
+				{
+					"id": "move-along-pathfinding-path",
+					"objectClass": "rat",
+					"sid": 381326734543375,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"mode": "direct"
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 579858290132774,
+					"parameters": {
+						"tag": "\"reached_destination\""
+					}
+				},
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "player",
+					"sid": 268800948745229,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"input": "stop-ignoring"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "dialogtrigger",
+					"sid": 372633036894673
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 587207863785588,
+					"parameters": {
+						"variable": "convo_counter",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 572588692034249
+		},
+		{
+			"eventType": "comment",
+			"text": "subway lady"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "player",
+					"sid": 453697196629536,
+					"parameters": {
+						"object": "dialogtrigger"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "dialogtrigger",
+					"sid": 116854663466681,
+					"parameters": {
+						"instance-variable": "convo_number",
+						"comparison": 0,
+						"value": "0"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 376723433020412,
+					"parameters": {
+						"variable": "convo_counter",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "player",
+					"sid": 301402227307907,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "player",
+					"sid": 961687486540309,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "lady",
+					"sid": 989348949936279,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "right_speech_bg",
+					"sid": 638865582752078,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "them_speech",
+					"sid": 955166168807376,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 861193672068068,
+					"parameters": {
+						"text": "\"Sorry buddy, the train is broken.\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 373688494785040,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "player",
+					"sid": 256816418613316,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "lady",
+					"sid": 903602422710767,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "them_speech",
+					"sid": 837780931222079,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "right_speech_bg",
+					"sid": 354071918324928,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 139722513863125,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 195872873913293,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 178545716400205,
+					"parameters": {
+						"text": "\"NO0O0O0O0O!!!!!\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 361593931313960,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 229031342114395,
+					"parameters": {
+						"text": "\"But I have to get to work!\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 356627907488957,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 394853110084209,
+					"parameters": {
+						"text": "\"I am going to get the ~EMPLOYEE OF THE MONTH~!\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 754855204978694,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "player",
+					"sid": 302292734711417,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "lady",
+					"sid": 525812962609730,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "them_speech",
+					"sid": 556921861491805,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "right_speech_bg",
+					"sid": 353430908193868,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 320305131240971,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 542802541229932,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 556530614944706,
+					"parameters": {
+						"text": "\"Nothing I can do about it BUB.\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 866207991339180,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 609946519688136,
+					"parameters": {
+						"text": "\"(...man, no one ever gives me employee of the month.)\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 675129706044057,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 178513929711503,
+					"parameters": {
+						"text": "\"Listen, if you're quick, you can catch the 13.  Parallels the subway.\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 771598529112335,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "player",
+					"sid": 303268704303669,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "lady",
+					"sid": 525097289680922,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "them_speech",
+					"sid": 841214186242362,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "right_speech_bg",
+					"sid": 429463878090643,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 308813197921129,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 611639756345098,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 384770675984782,
+					"parameters": {
+						"text": "\"Thanks, lady.  I'm on my way!\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 464880256313284,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "player",
+					"sid": 362097319497577,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "lady",
+					"sid": 954658251721210,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "them_speech",
+					"sid": 384650445022989,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "right_speech_bg",
+					"sid": 464752595655946,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 900364530077073,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 667146753184813,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 744272815247707,
+					"parameters": {
+						"text": "\"Good luck! I can tell... you deserve it.\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 811363517110718,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "player",
+					"sid": 852859451423840,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "lady",
+					"sid": 756336335600494,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "them_speech",
+					"sid": 539524022278759,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "right_speech_bg",
+					"sid": 253333377496191,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "them_speech",
+					"sid": 653384306225807,
+					"parameters": {
+						"text": "\"\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 599035832037645,
+					"parameters": {
+						"text": "\"\""
+					}
+				},
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "player",
+					"sid": 535353316228336,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"input": "stop-ignoring"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "dialogtrigger",
+					"sid": 322120078829054
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 883041403608215,
+					"parameters": {
+						"variable": "convo_counter",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "rat",
+					"sid": 209218898767119,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 807867124010858
+		},
+		{
+			"eventType": "comment",
+			"text": "first hallway comment"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "player",
+					"sid": 419452912110754,
+					"parameters": {
+						"object": "dialogtrigger"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "dialogtrigger",
+					"sid": 323417328358656,
+					"parameters": {
+						"instance-variable": "convo_number",
+						"comparison": 0,
+						"value": "-1"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "dialogtrigger",
+					"sid": 756711742519317,
+					"parameters": {
+						"instance-variable": "special",
+						"comparison": 0,
+						"value": "0"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 968301139541411,
+					"parameters": {
+						"variable": "convo_counter",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 429746283965495,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 140009610434573,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 442857672942471,
+					"parameters": {
+						"text": "\"I love how labyrinthine the subway is! It's so quaint.\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 901753966823838,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 125874282658226,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 116329308326374,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 356944616837673,
+					"parameters": {
+						"text": "\"\""
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "dialogtrigger",
+					"sid": 821919516989289
+				}
+			],
+			"sid": 376768893291334
+		},
+		{
+			"eventType": "comment",
+			"text": "first bathroom comment"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "player",
+					"sid": 594458633679089,
+					"parameters": {
+						"object": "dialogtrigger"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "dialogtrigger",
+					"sid": 387846768544512,
+					"parameters": {
+						"instance-variable": "convo_number",
+						"comparison": 0,
+						"value": "-1"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "dialogtrigger",
+					"sid": 212900673661930,
+					"parameters": {
+						"instance-variable": "special",
+						"comparison": 0,
+						"value": "1"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 472303333758497,
+					"parameters": {
+						"variable": "convo_counter",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "player",
+					"sid": 742158716318196,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 739332653631151,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 929890269861146,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 893067246918755,
+					"parameters": {
+						"text": "\"I REALLY gotta take a leak...\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 424615737988087,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 752575322699299,
+					"parameters": {
+						"text": "\"...but, oh boy, it's nasty in here. \""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 574242579155681,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 620256198387222,
+					"parameters": {
+						"text": "\"Plus, I can't be late for work.\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 801720402699045,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 899406196183435,
+					"parameters": {
+						"text": "\"I'll just hold it till my lunch break!\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 229383205922340,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 945397313459612,
+					"parameters": {
+						"text": "\"No problem ha ha!!!!!!\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 113600677682128,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 536628861117192,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 644716635788621,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 851927176224337,
+					"parameters": {
+						"text": "\"\""
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "dialogtrigger",
+					"sid": 778055306477685
+				},
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "player",
+					"sid": 425360022387160,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"input": "stop-ignoring"
+					}
+				}
+			],
+			"sid": 218028797767614
+		},
+		{
+			"eventType": "comment",
+			"text": "second hallway comment"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "player",
+					"sid": 770525551075398,
+					"parameters": {
+						"object": "dialogtrigger"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "dialogtrigger",
+					"sid": 326140183281930,
+					"parameters": {
+						"instance-variable": "convo_number",
+						"comparison": 0,
+						"value": "-1"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "dialogtrigger",
+					"sid": 204777263758654,
+					"parameters": {
+						"instance-variable": "special",
+						"comparison": 0,
+						"value": "2"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 883538611836556,
+					"parameters": {
+						"variable": "convo_counter",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 650314897275621,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 486715852718901,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 623745022733171,
+					"parameters": {
+						"text": "\"Can't believe I'm gonna be late...\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 321729803059148,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 363831598008626,
+					"parameters": {
+						"text": "\"Stupid hallway UGH\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 246996011533472,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 754049627163415,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 719622895434888,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 518345184438919,
+					"parameters": {
+						"text": "\"\""
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "dialogtrigger",
+					"sid": 963330806273267
+				}
+			],
+			"sid": 303121757895059
+		}
+	],
+	"sid": 537515842440381
+}

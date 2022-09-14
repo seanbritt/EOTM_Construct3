@@ -1,0 +1,25 @@
+{
+	"name": "you_speech",
+	"plugin-id": "Text",
+	"sid": 944963154753926,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 852800700865697
+		},
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 520180412750688
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "pixellate",
+			"name": "Pixellate"
+		}
+	]
+}

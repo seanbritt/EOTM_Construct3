@@ -1,0 +1,35 @@
+{
+	"name": "erat",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "rat",
+					"sid": 902635844304234,
+					"parameters": {
+						"object": "pathNode"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "signal",
+					"objectClass": "System",
+					"sid": 265337728002346,
+					"parameters": {
+						"tag": "\"reached_destination\""
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "pathNode",
+					"sid": 769628289223305
+				}
+			],
+			"sid": 417242118934761
+		}
+	],
+	"sid": 537388658176620
+}

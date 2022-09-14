@@ -1,0 +1,68 @@
+{
+	"name": "eshrink",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 843823844313417,
+					"parameters": {
+						"first-value": "player.Y",
+						"comparison": 3,
+						"second-value": "LayoutHeight*0.7"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-scale",
+					"objectClass": "player",
+					"sid": 915758862078001,
+					"parameters": {
+						"scale": ".8"
+					}
+				},
+				{
+					"id": "move-to-bottom",
+					"objectClass": "player",
+					"sid": 107350633193593
+				}
+			],
+			"sid": 821051922972369
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 935376178005105,
+					"parameters": {
+						"first-value": "player.Y",
+						"comparison": 4,
+						"second-value": "LayoutHeight*0.7"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-scale",
+					"objectClass": "player",
+					"sid": 626896947922588,
+					"parameters": {
+						"scale": "1"
+					}
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "player",
+					"sid": 340610261129093
+				}
+			],
+			"sid": 403037086277482
+		}
+	],
+	"sid": 342910583004178
+}

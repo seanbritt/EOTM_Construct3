@@ -1,0 +1,610 @@
+{
+	"name": "eplayer",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "previouslayout",
+			"type": "string",
+			"initialValue": "start",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 150093709973695
+		},
+		{
+			"eventType": "variable",
+			"name": "currentlayout",
+			"type": "string",
+			"initialValue": "start",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 613063264520954
+		},
+		{
+			"eventType": "variable",
+			"name": "direction",
+			"type": "string",
+			"initialValue": "not up",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 336563914259998
+		},
+		{
+			"eventType": "variable",
+			"name": "convo_counter",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 979416674037364
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "player",
+					"sid": 709692064461274,
+					"behaviorType": "8Direction",
+					"isInverted": true
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 482109848112054,
+					"parameters": {
+						"variable": "direction",
+						"comparison": 0,
+						"value": "\"up\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "player",
+					"sid": 665309645745351,
+					"parameters": {
+						"animation": "\"idle_up\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 783332868502303
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "player",
+					"sid": 718486275314052,
+					"behaviorType": "8Direction",
+					"isInverted": true
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 747222547605602,
+					"parameters": {
+						"variable": "direction",
+						"comparison": 0,
+						"value": "\"up\""
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "player",
+					"sid": 122524905609138,
+					"parameters": {
+						"animation": "\"idle\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 285725267876990
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 900658253205780,
+					"parameters": {
+						"key": 65
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 387773328714125,
+					"parameters": {
+						"variable": "direction",
+						"value": "\"not up\""
+					}
+				},
+				{
+					"id": "simulate-control",
+					"objectClass": "player",
+					"sid": 581392234687803,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"control": "left"
+					}
+				},
+				{
+					"id": "set-mirrored",
+					"objectClass": "player",
+					"sid": 431904741396837,
+					"parameters": {
+						"state": "mirrored"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "player",
+					"sid": 307424803601069,
+					"parameters": {
+						"animation": "\"walk\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 625286599453934
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 641613806658247,
+					"parameters": {
+						"key": 68
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 304892037830955,
+					"parameters": {
+						"variable": "direction",
+						"value": "\"not up\""
+					}
+				},
+				{
+					"id": "simulate-control",
+					"objectClass": "player",
+					"sid": 233226855030805,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"control": "right"
+					}
+				},
+				{
+					"id": "set-mirrored",
+					"objectClass": "player",
+					"sid": 308880999396172,
+					"parameters": {
+						"state": "not-mirrored"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "player",
+					"sid": 267445865237226,
+					"parameters": {
+						"animation": "\"walk\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 231104477954804
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 373728355403007,
+					"parameters": {
+						"key": 87
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 670636707448451,
+					"parameters": {
+						"key": 68
+					},
+					"isInverted": true
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 244961185465910,
+					"parameters": {
+						"key": 65
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 897631209618134,
+					"parameters": {
+						"variable": "direction",
+						"value": "\"up\""
+					}
+				},
+				{
+					"id": "simulate-control",
+					"objectClass": "player",
+					"sid": 663853236193341,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"control": "up"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "player",
+					"sid": 182287951410026,
+					"parameters": {
+						"animation": "\"walk_up\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 883672324019515
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 423287031128112,
+					"parameters": {
+						"key": 87
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 852034161725810,
+					"parameters": {
+						"key": 65
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 981242491021706,
+					"parameters": {
+						"variable": "direction",
+						"value": "\"up\""
+					}
+				},
+				{
+					"id": "simulate-control",
+					"objectClass": "player",
+					"sid": 467849109900840,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"control": "up"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "player",
+					"sid": 897061749608599,
+					"parameters": {
+						"animation": "\"walk\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 163214865359853
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 842741401127456,
+					"parameters": {
+						"key": 87
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 709993336008788,
+					"parameters": {
+						"key": 68
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 959162514166294,
+					"parameters": {
+						"variable": "direction",
+						"value": "\"up\""
+					}
+				},
+				{
+					"id": "simulate-control",
+					"objectClass": "player",
+					"sid": 878086010706094,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"control": "up"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "player",
+					"sid": 380908941536199,
+					"parameters": {
+						"animation": "\"walk\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 188247899595059
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 820433753106319,
+					"parameters": {
+						"key": 83
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 517226927719108,
+					"parameters": {
+						"key": 65
+					},
+					"isInverted": true
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 265238687659820,
+					"parameters": {
+						"key": 68
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 662389954369791,
+					"parameters": {
+						"variable": "direction",
+						"value": "\"not up\""
+					}
+				},
+				{
+					"id": "simulate-control",
+					"objectClass": "player",
+					"sid": 106251389906624,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"control": "down"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "player",
+					"sid": 764246443595489,
+					"parameters": {
+						"animation": "\"walk_down\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 809589970839577
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 210616125647317,
+					"parameters": {
+						"key": 83
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 697248807822678,
+					"parameters": {
+						"key": 65
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 399744643345804,
+					"parameters": {
+						"variable": "direction",
+						"value": "\"not up\""
+					}
+				},
+				{
+					"id": "simulate-control",
+					"objectClass": "player",
+					"sid": 319119122879496,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"control": "down"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "player",
+					"sid": 934668419607699,
+					"parameters": {
+						"animation": "\"walk\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 627490319216253
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 285103419813590,
+					"parameters": {
+						"key": 83
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 454438264039904,
+					"parameters": {
+						"key": 68
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 998839052262265,
+					"parameters": {
+						"variable": "direction",
+						"value": "\"not up\""
+					}
+				},
+				{
+					"id": "simulate-control",
+					"objectClass": "player",
+					"sid": 334522624975335,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"control": "down"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "player",
+					"sid": 198655141165136,
+					"parameters": {
+						"animation": "\"walk\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 743017611690142
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 749064169154073
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-layer",
+					"objectClass": "player",
+					"sid": 949657404346422,
+					"parameters": {
+						"layer": "LayerIndex(\"player\")"
+					}
+				}
+			],
+			"sid": 823674194627937
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 290992086637295,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "signal",
+					"objectClass": "System",
+					"sid": 857976635342691,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				}
+			],
+			"sid": 264943051195761
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 623300297113699
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 874272550652636,
+					"parameters": {
+						"variable": "convo_counter",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 765902664102365
+		}
+	],
+	"sid": 558360491147517
+}

@@ -1,0 +1,276 @@
+{
+	"name": "estreet100th",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eplayer"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eshrink"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 863691352353658
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 942562530160990,
+					"parameters": {
+						"variable": "previouslayout",
+						"value": "currentlayout"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 310958159175249,
+					"parameters": {
+						"variable": "currentlayout",
+						"value": "\"street100th\""
+					}
+				}
+			],
+			"sid": 607136646355428
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 671640121997946
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 115943380586299,
+					"parameters": {
+						"variable": "previouslayout",
+						"comparison": 0,
+						"value": "\"subway\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "player",
+					"sid": 808243177510637,
+					"parameters": {
+						"x": "360",
+						"y": "125"
+					}
+				}
+			],
+			"sid": 162222344252073
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 189851567238649
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 988823340663141,
+					"parameters": {
+						"variable": "previouslayout",
+						"comparison": 0,
+						"value": "\"start\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "player",
+					"sid": 683465041834761,
+					"parameters": {
+						"x": "61",
+						"y": "108"
+					}
+				}
+			],
+			"sid": 376958010011832
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "player",
+					"sid": 596347402931562,
+					"parameters": {
+						"object": "warpright"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 574428758551423,
+					"parameters": {
+						"layout": "subway"
+					}
+				}
+			],
+			"sid": 177642752559206
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "player",
+					"sid": 819340359181418,
+					"parameters": {
+						"object": "dialogtrigger"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "player",
+					"sid": 600046833052919,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 862614182808599,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 564048290605928,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 626944172112346,
+					"parameters": {
+						"text": "\"I can't wait to get to work!\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "instruction_space",
+					"sid": 885271422892180,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 783392192219522,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "instruction_space",
+					"sid": 425154114693350,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 483414651391758,
+					"parameters": {
+						"text": "\"They're awarding me with ~EMPLOYEE OF THE MONTH~ today!\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 823793594269848,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 823633491737751,
+					"parameters": {
+						"text": "\"I better get going or I'll miss my train!\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 920900162582956,
+					"parameters": {
+						"tag": "\"interact\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "left_speech_bg",
+					"sid": 107086594861641,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "you_speech",
+					"sid": 512853243527614,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "you_speech",
+					"sid": 788055643714252,
+					"parameters": {
+						"text": "\"\""
+					}
+				},
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "player",
+					"sid": 534531785631721,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"input": "stop-ignoring"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "dialogtrigger",
+					"sid": 667310679574707
+				}
+			],
+			"sid": 124106096909937
+		}
+	],
+	"sid": 207400390939115
+}
